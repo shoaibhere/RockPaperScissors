@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="game.js"></script>
+</head>
+<body class="d-flex flex-column vh-100 justify-content-center align-items-center p-5 bg-dark">
+  <div class="d-flex flex-column gap-3 text-light shadow-lg p-3 mb-5 rounded">
+    <h1 class="text-center">Rock Paper Scissors</h1>
+    <div class="fs-1 d-flex justify-content-center gap-5 px-5 align-items-center">
+      <button id="rock" class="bg-dark border border-light border-3 rounded-circle p-3">&#9994;</button>
+      <button id="paper" class="bg-dark border border-light border-3 rounded-circle p-3">&#9995;</button>
+      <button id="scissors" class="bg-dark border border-light border-3 rounded-circle p-3">&#9996;</button>
+    </div>
+    
+    <h1 id="tied" class="d-none text-center">Match Tied &#128556;</h1>
+    <h1 id="won" class="d-none text-center">You Won! &#128526;</h1>
+    <h1 id="lost" class="d-none text-center">You Lost &#128532;</h1>
+
+    <div id="choices-display" class="d-none text-center">
+      <h1>You 
+        <span id="you-rock" class="d-none">&#9994;</span>
+        <span id="you-paper" class="d-none">&#9995;</span>
+        <span id="you-scissors" class="d-none">&#9996;</span>
+        <span id="comp-rock" class="d-none">&#9994;</span>
+        <span id="comp-paper" class="d-none">&#9995;</span>
+        <span id="comp-scissors" class="d-none">&#9996;</span>
+         Computer
+      </h1>
+    </div>
+    <div id="stats-div" class="d-flex align-items-center flex-row justify-content-center gap-3 d-none">
+      <h1>Wins: <span id="wins-disp">0</span></h1>
+      <h1>Losses: <span id="losses-disp">0</span></h1>
+      <h1>Ties: <span id="ties-disp">0</span></h1>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button id="reset" class="p-2 d-none rounded">Reset Score</button>
+    </div>
+  </div>
+</body>
+</html>
