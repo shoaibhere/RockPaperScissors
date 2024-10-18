@@ -1,6 +1,9 @@
-let wins=0;
-let losses=0;
-let ties=0;
+const score = JSON.parse(localStorage.getItem("score"))|| {
+  wins: 0,
+  losses: 0,
+  ties: 0
+};
+
 function computerTurnExecuter(){
 const computerTurn= Math.random();
 let computerEmoji;
@@ -13,16 +16,12 @@ else
 return computerEmoji;
 }
 function resetScore(){
-  wins=0;
-  losses=0;
-  ties=0;
-  wins = 0;
-  losses = 0;
-  ties = 0;
-  document.getElementById("wins-disp").textContent = wins;
-  document.getElementById("losses-disp").textContent = losses;
-  document.getElementById("ties-disp").textContent = ties;
-  console.log("Scores reset");
+  score.wins = 0;
+  score.losses = 0;
+  score.ties = 0;
+  document.getElementById("wins-disp").textContent=`Wins : ${score.wins}`;
+  document.getElementById("losses-disp").textContent=`Losses : ${score.losses}`;
+  document.getElementById("ties-disp").textContent=`Ties : ${score.ties}`;
 }
 function resultDecider(player,comp){
   if(player===comp)
@@ -61,6 +60,9 @@ window.onload= function(){
   paper.onclick=handleClick;
   scissors.onclick=handleClick;
   reset.onclick=resetScore;
+  document.getElementById("wins-disp").textContent=`Wins : ${score.wins}`;
+  document.getElementById("losses-disp").textContent=`Losses : ${score.losses}`;
+  document.getElementById("ties-disp").textContent=`Ties : ${score.ties}`;
 }
 function handleClick(event)
 {
@@ -91,7 +93,7 @@ function handleClick(event)
     won.style.setProperty('display','inline','important');
 
     console.log('YOU WON');
-    wins++;
+    score.wins++;
   }
   else if(result==="lost")
   {
@@ -100,7 +102,7 @@ function handleClick(event)
     lost.style.setProperty('display','inline','important');
 
     console.log('YOU LOST');
-    losses++;
+    score.losses++;
   }
   else
   {
@@ -109,8 +111,9 @@ function handleClick(event)
     tied.style.setProperty('display','inline','important');
     console.log('MATCH TIED ');
 
-    ties++;
+    score.ties++;
   }
+  localStorage.setItem("score",JSON.stringify(score));
 
   if(event.target.id==="rock")
   {
@@ -149,8 +152,8 @@ function handleClick(event)
       compPaper.style.setProperty('display','none','important');
       compScissors.style.setProperty('display','inline','important');
     }  
-    document.getElementById("wins-disp").textContent=wins;
-    document.getElementById("losses-disp").textContent=losses;
-    document.getElementById("ties-disp").textContent=ties;
+    document.getElementById("wins-disp").textContent=`Wins : ${score.wins}`;
+    document.getElementById("losses-disp").textContent=`Losses : ${score.losses}`;
+    document.getElementById("ties-disp").textContent=`Ties : ${score.ties}`;
 
 }
